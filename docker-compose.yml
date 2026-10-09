@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: seravia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: seravia
+      POSTGRES_PASSWORD: seravia
+      POSTGRES_DB: seravia
+    ports:
+      - "5433:5432"
+    volumes:
+      - seravia_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U seravia -d seravia"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  seravia_pg:
