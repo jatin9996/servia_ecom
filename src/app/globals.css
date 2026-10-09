@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f3f0ea;
+  color: #161411;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: #e7c7b8;
+  color: #161411;
+}
+
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-page px-5;
+  }
+
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.18em] text-stone;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 bg-clay px-5 py-3 text-[13px] font-medium tracking-wide text-ivory transition hover:bg-ink disabled:cursor-not-allowed disabled:bg-stone;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-ink px-5 py-3 text-[13px] font-medium tracking-wide text-ivory transition hover:bg-clay disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-line {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/20 bg-transparent px-5 py-3 text-[13px] tracking-wide text-ink transition hover:border-ink;
+  }
+
+  .field {
+    @apply w-full border border-line bg-ivory px-3 py-3 text-sm text-ink outline-none transition placeholder:text-stone/80 focus:border-ink;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] uppercase tracking-[0.16em] text-stone;
+  }
+
+  .hairline {
+    @apply border-line;
+  }
+}
+
+input,
+select,
+textarea {
+  border-radius: 0;
+}
